@@ -19,3 +19,4 @@ The generator cli will parse the current folder structure - generate an config.j
 1. git clone https://github.com/ifahrentholz/generator
 2. cd generator
 3. npm link
+4. shell: `bob -h`
