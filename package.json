@@ -1,0 +1,28 @@
+{
+  "name": "if",
+  "version": "1.0.0",
+  "description": "Rails like FE generator",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifahrentholz/generator.git"
+  },
+  "keywords": [
+    "generator"
+  ],
+  "author": "Ingo Fahrentholz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ifahrentholz/generator/issues"
+  },
+  "homepage": "https://github.com/ifahrentholz/generator#readme",
+  "bin": {
+    "bob": "./lib/index.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
