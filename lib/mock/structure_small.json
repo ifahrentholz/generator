@@ -1,0 +1,12 @@
+{
+  "imports": [{
+    "startup": [{
+      "client": {
+        "files": ["index.js", "routes.js"]
+      },
+      "server": {
+        "files": ["fixtures.js", "index.js"]
+      }
+    }]
+  }]
+}

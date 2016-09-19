@@ -1,0 +1,31 @@
+{
+  "imports": {
+    "startup": {
+      "client": {
+        "files": ["main.js", "routes.js"]
+      },
+      "server": {
+        "files": ["main.js", "fixtures.js"]
+      }
+    }
+  },
+  "api": {
+    "lists": {
+      "server": {
+        "files": ["publications.js", "publications.test.js"]
+      },
+      "files": ["lists.js", "lists.test.js", "methods.js", "methods.test.js"]
+    }
+  },
+  "ui": {
+    "components": {},
+    "layouts": {},
+    "pages": {}
+  },
+  "client": {
+    "files": ["main.js"]
+  },
+  "server": {
+    "files": ["main.js"]
+  }
+}
