@@ -1,0 +1,18 @@
+{
+  "assets": {
+    "icons": {},
+    "svg": {}
+  },
+  "components": {
+    "files": ["htmlHeadCC2.hbs", "htmlScriptCC2.hbs"]
+  },
+  "styles": {
+    "core": {
+      "files": ["_base.scss", "_icons.scss"]
+    },
+    "files": ["index.scss"]
+  },
+  "templates": {
+    "files": ["car_configurator.hbs"]
+  }
+}
