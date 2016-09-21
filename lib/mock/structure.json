@@ -1,32 +1,18 @@
 {
-  "imports": {
-    "startup": {
-      "client": {
-        "files": ["main.js", "routes.js"]
-      },
-      "server": {
-        "files": ["main.js", "fixtures.js"]
-      }
-    },
-    "api": {
-      "lists": {
-        "server": {
-          "files": ["publications.js", "publications.test.js"]
-        },
-        "files": ["lists.js", "lists.test.js", "methods.js", "methods.test.js"]
-      }
-    },
-    "ui": {
-      "components": {},
-      "layouts": {},
-      "pages": {}
-    }
+  "assets": {
+    "icons": {},
+    "svg": {}
   },
-
-  "client": {
-    "files": ["main.js"]
+  "components": {
+    "files": ["htmlHeadCC2.hbs", "htmlScriptCC2.hbs"]
   },
-  "server": {
-    "files": ["main.js"]
+  "styles": {
+    "core": {
+      "files": ["_base.scss", "_icons.scss"]
+    },
+    "files": ["index.scss"]
+  },
+  "templates": {
+    "files": ["car_configurator.hbs"]
   }
 }
