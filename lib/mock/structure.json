@@ -10,7 +10,7 @@
     "core": {
       "files": ["_base.scss", "_icons.scss"]
     },
-    "files": ["index.scss"]
+    "files": ["_index.scss", "importer.scss"]
   },
   "templates": {
     "files": ["car_configurator.hbs"]
