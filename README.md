@@ -2,13 +2,13 @@
 
 ## Command overview
 
-- [ ] `if new my_app [options]`
-- [ ] `if generate GENERATOR [args] [options]`
-- [ ] `if generate component NAME [method method] [options]`
-- [ ] `if generate service NAME [method method] [options]`
-- [ ] `if generate helper NAME [method method] [options]`
-- [ ] `if generate mixin NAME [method method] [options]`
-- [ ] `if cull NAME` 
+- [ ] `bob new my_app [options]`
+- [ ] `bob generate GENERATOR [args] [options]`
+- [ ] `bob generate component NAME [method method] [options]`
+- [ ] `bob generate service NAME [method method] [options]`
+- [ ] `bob generate helper NAME [method method] [options]`
+- [ ] `bob generate mixin NAME [method method] [options]`
+- [ ] `bob cull NAME` 
 
 ## The cull command
 
