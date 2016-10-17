@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ifahrentholz/generator#readme",
   "bin": {
-    "bob": "./lib/index.js"
+    "bob": "./lib/bob.js"
   },
   "dependencies": {
     "chalk": "1.1.3",
