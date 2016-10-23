@@ -4,7 +4,10 @@
     "target": "es5",
     "noImplicitAny": false,
     "sourceMap": false,
-    "outDir": "./bin"
+    "outDir": "./bin",
+    "typeRoots": [
+      "./typings/globals"
+    ]
   },
   "files": [
     "./lib/bob"
