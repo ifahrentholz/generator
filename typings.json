@@ -1,7 +1,11 @@
 {
   "globalDependencies": {
+    "chalk": "registry:dt/chalk#0.4.0+20160317120654",
     "commander": "registry:dt/commander#2.3.0+20160317120654",
     "fs-extra": "registry:dt/fs-extra#0.0.0+20161004190449",
     "node": "registry:dt/node#6.0.0+20161019125345"
+  },
+  "dependencies": {
+    "chalk": "registry:npm/chalk#1.1.1+20160812215109"
   }
 }

@@ -1,25 +1,41 @@
 import * as fs from "fs-extra";
 
+import isArray from '../helper/isArray';
+import isObject from '../helper/isObject';
+import logger from '../services/logger';
+
+
 class Creator {
-  cName: string;
-  structure: any;
-  target: string;
 
-  constructor() {
-  }
-
-  generate(cName: string, target?: string, structure?: any) {
-    this.cName = cName;
-    this.structure = structure;
-    this.target = target;
-
+  generate(cName: String, structure: Object, target?: String) {
     let _file, _folder, _fileName;
 
     if (!target) {
       target = cName + "/";
     }
 
-    console.log("should generate:", cName);
+    Object.keys(structure).forEach((key) => {
+      let msg = '';
+
+      if(isObject(structure[key])) {
+        _folder = target + key;
+        fs.ensureFileSync(`${_folder}/.keep`);
+        msg = `created folder ${_folder}`;
+        logger.message(msg);
+        this.generate(cName, structure[key], _folder + "/");
+      } else {
+        if(isArray(structure[key])) {
+          for(let i = 0; i < structure[key].length; i++) {
+            _fileName = structure[key][i];
+            _file = target + _fileName;
+            fs.createFileSync(_file);
+            msg = `created file ${_file}`;
+            logger.message(msg);
+          }
+        }
+      }
+    });
+
   }
 }
 

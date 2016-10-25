@@ -1,3 +1,4 @@
-/**
- * Created by ifahrentholz on 25.10.16.
- */
+export default (o:any) :boolean => {
+  return (!!o) && (o.constructor === Object);
+};
+

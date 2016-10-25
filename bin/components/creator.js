@@ -1,16 +1,38 @@
 "use strict";
+var fs = require("fs-extra");
+var isArray_1 = require('../helper/isArray');
+var isObject_1 = require('../helper/isObject');
+var logger_1 = require('../services/logger');
 var Creator = (function () {
     function Creator() {
     }
-    Creator.prototype.generate = function (cName, target, structure) {
-        this.cName = cName;
-        this.structure = structure;
-        this.target = target;
+    Creator.prototype.generate = function (cName, structure, target) {
+        var _this = this;
         var _file, _folder, _fileName;
         if (!target) {
             target = cName + "/";
         }
-        console.log("should generate:", cName);
+        Object.keys(structure).forEach(function (key) {
+            var msg = '';
+            if (isObject_1.default(structure[key])) {
+                _folder = target + key;
+                fs.ensureFileSync(_folder + "/.keep");
+                msg = "created folder " + _folder;
+                logger_1.default.message(msg);
+                _this.generate(cName, structure[key], _folder + "/");
+            }
+            else {
+                if (isArray_1.default(structure[key])) {
+                    for (var i = 0; i < structure[key].length; i++) {
+                        _fileName = structure[key][i];
+                        _file = target + _fileName;
+                        fs.createFileSync(_file);
+                        msg = "created file " + _file;
+                        logger_1.default.message(msg);
+                    }
+                }
+            }
+        });
     };
     return Creator;
 }());

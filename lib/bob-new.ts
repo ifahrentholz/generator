@@ -1,7 +1,7 @@
 import * as program from "commander"
-import { Bob } from './components/creator'
+import { Creator } from './components/creator'
 
-let bob = new Bob();
+let bob = new Creator();
 
 program
   .action((app:string) => {
