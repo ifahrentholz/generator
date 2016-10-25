@@ -1,6 +1,6 @@
 {
   "name": "if",
-  "version": "1.0.0",
+  "version": "0.0.30",
   "description": "Rails like FE generator",
   "main": "bin/bob.js",
   "scripts": {

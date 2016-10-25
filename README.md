@@ -1,4 +1,7 @@
-# Rails like FE generator
+Rails like FE generator
+=======================
+
+##### Keep in mind currently the master is a WIP branch.
 
 ## Command overview
 
