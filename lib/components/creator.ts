@@ -8,7 +8,7 @@ import logger from '../services/logger';
 class Creator {
 
   generate(cName: String, structure: Object, target?: String) {
-    let _file, _folder, _fileName;
+    let _file:String, _folder:String, _fileName:String;
 
     if (!target) {
       target = cName + "/";
