@@ -3,6 +3,8 @@ Rails like FE generator
 
 ##### Keep in mind currently the master is a WIP branch.
 
+[Open issues](https://github.com/ifahrentholz/generator/projects/1)
+
 ## Command overview
 
 - [ ] `bob new my_app [options]`
