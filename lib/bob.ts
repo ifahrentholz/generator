@@ -2,12 +2,10 @@
 
 import * as program from "commander";
 
-program
-.version("1.0.0")
-.command('component <cName>')
-.action((cName) => {
-  console.log("test1337");
-  console.log(cName);
-});
+var pkg = require("../package.json");
 
-program.parse(process.argv);
+program
+  .version(pkg.version)
+  .command('new <app>', 'create a new project').alias('n')
+  .command('generate', 'invoke a generator').alias('g')
+  .parse(process.argv);

@@ -9,7 +9,9 @@
       "./typings/globals"
     ]
   },
-  "files": [
-    "./lib/bob"
+  "exclude": [
+    "node_modules",
+    "typings",
+    "backup"
   ]
 }
