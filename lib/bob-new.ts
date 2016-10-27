@@ -1,11 +1,11 @@
 import * as program from "commander"
 import { Creator } from './components/creator'
+import {projectStructure, generators} from './blueprints/config'
 
 let bob = new Creator();
 
 program
   .action((app:string) => {
-    // Todo write mock data
-    bob.generate(app, "dummy", "target")
+    bob.generate(app, projectStructure)
   })
   .parse(process.argv);

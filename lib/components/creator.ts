@@ -2,10 +2,11 @@ import * as fs from "fs-extra";
 
 import isArray from '../helper/isArray';
 import isObject from '../helper/isObject';
+import replaceString from '../helper/replaceString';
 import logger from '../services/logger';
 
 
-class Creator {
+export class Creator {
 
   generate(cName: string, structure: Object, target?: string) {
     let _file:string, _folder:string, _fileName:string;
@@ -26,7 +27,7 @@ class Creator {
       } else {
         if(isArray(structure[key])) {
           for(let i = 0; i < structure[key].length; i++) {
-            _fileName = structure[key][i];
+            _fileName = replaceString(structure[key][i], cName, "%cName%");
             _file = target + _fileName;
             fs.createFileSync(_file);
             msg = `created file ${_file}`;
@@ -38,5 +39,3 @@ class Creator {
 
   }
 }
-
-export {Creator}

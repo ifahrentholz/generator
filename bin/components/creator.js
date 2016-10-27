@@ -2,6 +2,7 @@
 var fs = require("fs-extra");
 var isArray_1 = require('../helper/isArray');
 var isObject_1 = require('../helper/isObject');
+var replaceString_1 = require('../helper/replaceString');
 var logger_1 = require('../services/logger');
 var Creator = (function () {
     function Creator() {
@@ -24,7 +25,7 @@ var Creator = (function () {
             else {
                 if (isArray_1.default(structure[key])) {
                     for (var i = 0; i < structure[key].length; i++) {
-                        _fileName = structure[key][i];
+                        _fileName = replaceString_1.default(structure[key][i], cName, "%cName%");
                         _file = target + _fileName;
                         fs.createFileSync(_file);
                         msg = "created file " + _file;
