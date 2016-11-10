@@ -1,8 +1,8 @@
 {
   "name": "bob",
-  "version": "0.0.30",
+  "version": "0.0.1",
   "description": "Rails like FE generator",
-  "main": "bin/bob.js",
+  "main": "lib/bob.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,11 +20,17 @@
   },
   "homepage": "https://github.com/ifahrentholz/generator#readme",
   "bin": {
-    "bob": "./bin/bob.js"
+    "bob": "./lib/bob.js"
   },
   "dependencies": {
     "chalk": "1.1.3",
     "commander": "git+https://github.com/tj/commander.js.git",
-    "fs-extra": "^0.30.0"
+    "fs-extra": "0.30.0",
+    "pluralize": "3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-preset-es2015": "6.18.0",
+    "webpack": "1.13.3"
   }
 }

@@ -11,7 +11,7 @@ interface ErrorConstructor {
 
 // compat for TypeScript 1.8
 // if you use with --target es3 or --target es5 and use below definitions,
-// use the lib.es6.d.ts that is bundled with TypeScript 1.8.
+// use the src.es6.d.ts that is bundled with TypeScript 1.8.
 interface MapConstructor { }
 interface WeakMapConstructor { }
 interface SetConstructor { }
