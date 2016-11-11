@@ -1,9 +1,11 @@
 module.exports = {
   folderStructure: {
     "components": {
-      "files": ["%camelName%.spec.js", "%camelName%.js", "%camelName%.hbs"]
+      "files": ["%cName%.spec.js", "%cName%.js", "%cName%.hbs"]
     },
-    "stylesheets": {},
+    "stylesheets": {
+      "files": ["%cName%.css"]
+    },
     "templates": {}
   }
 };

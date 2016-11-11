@@ -3,20 +3,21 @@
 import program from 'commander';
 import pkg from '../package.json';
 import pluralize from 'pluralize';
+import creator from './services/creator';
+import config from '../blueprints/bob.config';
 
 program
   .version(pkg.version);
-  // .option('-C, --chdir <path>', 'change the working directory')
-  // .option('-c, --config <path>', 'set config path. defaults to ./deploy.conf')
-  // .option('-T, --no-tests', 'ignore test hook');
+// .option('-C, --chdir <path>', 'change the working directory')
 
 program
   .command('new <app>')
   .description('create a new app')
   .action((app) => {
-    let c = "components";
-    console.log("appname: ", pluralize(c, 1));
+    creator.generate(app, config.folderStructure);
   });
 
 program
   .parse(process.argv);
+
+
