@@ -6,6 +6,15 @@ import replaceString from '../helper/replaceString';
 import logger from './logger';
 import * as path from "path";
 
+/**
+ * 1. create folder (empty)
+ * 2. create file (empty)
+ * 3. get bp file based on path of the created file
+ * -> file created under stylesheets so look inside config.js[stylesheets] and fetch all filetypes (*.css / *.scss)
+ * -> goto folder blueprints/templates/stylesheet fetch all files which match the filestypes and get their content
+ * -> paste the content into the created file
+ */
+
 export default class Creator {
   static generate(cName, structure, target) {
 
