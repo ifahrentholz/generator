@@ -1,62 +1,50 @@
-import * as fs from 'fs-extra';
-
-import isArray from '../helper/isArray';
-import isObject from '../helper/isObject';
-import replaceString from '../helper/replaceString';
+import isObject from "../helper/isObject";
 import logger from './logger';
-import * as path from "path";
+import * as fs from "fs-extra";
+import isArray from "../helper/isArray";
+import setFileName from "../helper/replaceString";
 
-/**
- * 1. create folder (empty)
- * 2. create file (empty)
- * 3. get bp file based on path of the created file
- * -> file created under stylesheets so look inside config.js[stylesheets] and fetch all filetypes (*.css / *.scss)
- * -> goto folder blueprints/templates/stylesheet fetch all files which match the filestypes and get their content
- * -> paste the content into the created file
- */
 
-export default class Creator {
-  static generate(cName, structure, target) {
+let createFolder = (folder) => {
+  fs.ensureFileSync(`${folder}/.keep`);
+  logger.message(`created folder ${folder}`);
+};
 
-    let _file, _folder, _fileName, newFile;
 
-    if (!target) {
-      target = cName + "/";
+let createFile = (file, cName, target) => {
+  let _file = target + setFileName(file, cName, "%cName%");
+  fs.createFileSync(_file);
+  logger.message(`created file ${_file}`);
+};
+
+
+let getFileContent = (file) => {
+};
+
+
+let setFileContent = (file) => {
+};
+
+
+let generate = (cName, structure, target) => {
+  Object.keys(structure).forEach((key) => {
+    if (isObject(structure[key])) {
+      let folder = target + key;
+      createFolder(folder);
+      generate(cName, structure[key], folder + "/");
+    } else if (isArray(structure[key])) {
+      for (let file of structure[key]) {
+        createFile(file, cName, target);
+      }
     }
 
-    Object.keys(structure).forEach((key) => {
+  });
+};
 
-      let msg = '';
 
-      if (isObject(structure[key])) {
-        _folder = target + key;
-        fs.ensureFileSync(`${_folder}/.keep`);
-        msg = `created folder ${_folder}`;
-        logger.message(msg);
-        this.generate(cName, structure[key], _folder + "/");
-      } else {
-        if (isArray(structure[key])) {
-          for (let i = 0; i < structure[key].length; i++) {
-            _fileName = replaceString(structure[key][i], cName, "%cName%");
-            _file = target + _fileName;
-            newFile = fs.createFileSync(_file);
-            let pa = path.resolve(__dirname, '../../blueprints/bob.config.js');
-            console.log(pa);
-            let c = fs.readFileSync(pa).toString();
-            console.log(c);
-            fs.appendFileSync(_file, c);
-            let destPathString = target.split("/");
-            let templateId = destPathString.filter((n) => {
-              return n.length > 0;
-            }).pop();
-            console.log(templateId);
-            msg = `created file ${_file}`;
-            logger.message(msg);
-          }
-        }
-      }
-
-    });
+export default (cName, structure, target = null) => {
+  if (!target) {
+    target = cName + "/";
   }
-}
-
+  generate(cName, structure, target);
+};

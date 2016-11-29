@@ -14,7 +14,7 @@ program
   .command('new <app>')
   .description('create a new app')
   .action((app) => {
-    creator.generate(app, config.folderStructure);
+    creator(app, config.folderStructure);
   });
 
 program
