@@ -1,3 +1,4 @@
+import path from "path";
 import isObject from "../helper/isObject";
 import logger from './logger';
 import * as fs from "fs-extra";
@@ -12,7 +13,7 @@ import setFileName from "../helper/replaceString";
  *
  * @param {String} folder
  */
-let createFolder = (folder) => {
+const createFolder = (folder) => {
   fs.ensureFileSync(`${folder}/.keep`);
   logger.message(`created folder ${folder}`);
 };
@@ -26,7 +27,7 @@ let createFolder = (folder) => {
  * @param {String} cName
  * @param {String} target
  */
-let createFile = (file, cName, target) => {
+const createFile = (file, cName, target) => {
   let _filename = setFileName(file, cName, "%cName%");
   let _filepath = target + _filename;
   fs.createFileSync(_filepath);
@@ -41,21 +42,27 @@ let createFile = (file, cName, target) => {
  *
  * @param {String} file
  */
-let getFileContent = (file) => {
+const getFileContent = (file) => {
 };
 
 
 /**
  * Fill a given file with content.
  *
- * @param {String} file
+ * @param {String} file - The file where the content should be set to.
+ * @param {String} filepath - The path of the file
  */
-let setFileContent = (file, filepath) => {
-  let _fileExtension = file.split(".").pop();
+const setFileContent = (file, filepath) => {
+  let parsed = path.parse(file);
+  let _base = parsed.base;
+  let _extension = parsed.ext;
+  let _name = parsed.name;
   let _type = filepath.split("/").filter((n) => {
     return n.length > 0;
   }).pop();
-  console.log("extension:", _fileExtension);
+  console.log("base:", _base);
+  console.log("ext:", _extension);
+  console.log("name:", _name);
   console.log("type:", _type);
 };
 
@@ -69,7 +76,7 @@ let setFileContent = (file, filepath) => {
  * @param {Object} structure
  * @param {String} target
  */
-let generate = (cName, structure, target) => {
+const generate = (cName, structure, target) => {
   Object.keys(structure).forEach((key) => {
     if (isObject(structure[key])) {
       let folder = target + key;
