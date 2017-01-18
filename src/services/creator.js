@@ -3,7 +3,7 @@ import isObject from "../helper/isObject";
 import logger from './logger';
 import * as fs from "fs-extra";
 import isArray from "../helper/isArray";
-import setFileName from "../helper/replaceString";
+import replaceString from "../helper/replaceString";
 
 
 /**
@@ -28,7 +28,7 @@ const createFolder = (folder) => {
  * @param {String} target
  */
 const createFile = (file, cName, target) => {
-  let _filename = setFileName(file, cName, "%cName%");
+  let _filename = replaceString(file, cName, "%cName%");
   let _filepath = target + _filename;
   fs.createFileSync(_filepath);
   logger.message(`created file ${_filepath}`);
@@ -104,6 +104,8 @@ const generate = (cName, structure, target) => {
  * @returns {void}
  */
 export default (cName, structure, target = null) => {
+  console.log("cName:", cName);
+  console.log("struct:", structure);
   if (!target) {
     target = cName + "/";
   }
